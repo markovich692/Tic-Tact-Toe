@@ -6,6 +6,18 @@
   box-sizing: inherit;
 }
 
+:root {
+  --color-one: #ccd5ae;
+  --color-two: #03045e;
+  --color-three: #0077b6;
+  --color-four: #fb8500;
+  --color-five: #f7b1b0;
+  --color-six: #f7ede2;
+  --color-seven: #ecfff8;
+  --color-eight: #c8b8db;
+  --color-nine: #187795;
+}
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -16,25 +28,64 @@ body {
   font-size: 12px;
   line-height: 1.6;
   background-color: orangered;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .gameboard {
+  padding: 15px 30px 15px 30px;
+  background-color: var(--color-one);
+  display: flex;
+  gap: 80px;
+}
+
+.game-buttons {
+  display: flex;
+  gap: 40px;
+}
+
+.game-button {
 }
 
 .button_start {
+  background-color: var(--color-two);
+}
+
+.button_restart {
 }
 
 .players {
+  /* background-color: var(--color-three); */
+  display: flex;
+  gap: 90px;
 }
 
 .player1 {
+  background-color: var(--color-four);
 }
 
 .player2 {
+  background-color: var(--color-four);
 }
 
-.container {
+.game-container {
+  flex: 1;
+
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  padding-top: 60px;
+  justify-content: center;
+  align-content: start;
+  gap: 10px;
 }
 
 .square {
+  background-color: var(--color-nine);
+  width: 150px;
+  height: 150px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
 }
