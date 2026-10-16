@@ -46,13 +46,24 @@ body {
 }
 
 .game-button {
+  padding: 10px 7px;
+  border: none;
 }
 
-.button_start {
-  background-color: var(--color-two);
+.game-button:hover {
+  background-color: var(--color-four);
+  cursor: pointer;
 }
 
-.button_restart {
+.game-button:active {
+  background-color: var(--color-four);
+}
+
+.button-start {
+}
+
+.button-restart {
+  display: none;
 }
 
 .players {

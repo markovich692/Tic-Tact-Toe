@@ -1,7 +1,7 @@
-"use-strict";
+"use strict";
 
-function Gameboard() {
-  const board = ["", "", "", "", "", "", "", "", ""];
+const gameboard = function () {
+  let gameboardArray = [, , , , , , , ,];
 
   const winningCombination = [
     [0, 1, 2],
@@ -14,43 +14,43 @@ function Gameboard() {
     [2, 5, 8],
   ];
 
-  const player1 = { marker: "X", moves: [], score: "" };
+  const updateGameboardArray = function (position, marker) {
+    gameboardArray[position] = marker;
 
-  const player2 = { marker: "0", moves: [], score: "" };
+    return gameboardArray;
+  };
 
-  return { player1, player2, board, winningCombination };
-}
+  return { gameboardArray, updateGameboardArray };
+};
 
-const game = Gameboard();
+const startGame = gameboard();
 
-// Player 1 clicks on the 4th square
+const createPlayer = function (marker) {
+  const { gameboardArray, updateGameboardArray } = startGame;
 
-game.board[4] = game.player1.marker;
+  return { gameboardArray, updateGameboardArray, marker };
+};
 
-game.player1.moves.push(4);
+/* PLAYER 1 */
+const player1 = createPlayer("X");
 
-// Player 1 clicks on the 5th square
+player1.updateGameboardArray(3, player1.marker);
 
-game.board[5] = game.player1.marker;
+// console.log(player1);
 
-game.player1.moves.push(5);
+/* PLAYER 2 */
+const player2 = createPlayer("0");
 
-// Player 1 clicks on the 6th square
+player2.updateGameboardArray(4, player2.marker);
 
-game.board[6] = game.player1.marker;
 
-game.player1.moves.push(6);
+const gameLogic 
 
-// Checks if the player moves match the winning combination no matter the order
 
-console.log(game.player1.moves);
 
-console.log(game.winningCombination);
 
-const test = game.winningCombination.some(function (combination) {
-  return combination.every(function (square) {
-    return game.player1.moves.includes(square);
-  });
-});
 
-console.log(test);
+// console.log(player2);
+console.log(player1.gameboardArray);
+console.log(player2.gameboardArray);
+console.log(player1.gameboardArray === player2.gameboardArray);
